@@ -10,7 +10,7 @@ from bluepy.btle import UUID, Peripheral
 class PlayBulbSkill(MycroftSkill):
 
     max_retries = 4
-    candles = ["", "", "", "", ""]
+    candles = ['', '', '', '', '']
 
     def __init__(self):
         """ The __init__ method is called when the Skill is first constructed.
@@ -29,12 +29,12 @@ class PlayBulbSkill(MycroftSkill):
         self.on_settings_changed()
 
     def on_settings_changed(self):
-        self.candles[0] = self.settings.get('candle_addr1')
-        self.candles[1] = self.settings.get('candle_addr2')
-        self.candles[2] = self.settings.get('candle_addr3')
-        self.candles[3] = self.settings.get('candle_addr4')
-        self.candles[4] = self.settings.get('candle_addr5')
-        self.max_retries = self.settings.get('max_retries')
+        self.candles[0] = self.settings.get('candle_addr1', '')
+        self.candles[1] = self.settings.get('candle_addr2', '')
+        self.candles[2] = self.settings.get('candle_addr3', '')
+        self.candles[3] = self.settings.get('candle_addr4', '')
+        self.candles[4] = self.settings.get('candle_addr5', '')
+        self.max_retries = self.settings.get('max_retries', 4)
 
     def send_message_to_bulb(self, message, address):
         led_service_uuid = UUID(0xfe0c)
@@ -63,7 +63,7 @@ class PlayBulbSkill(MycroftSkill):
         self.speak("on")
 
         for candle in self.candles:
-            if(candle != ""):
+            if(candle != ''):
                 try_again = 0
                 while(try_again < self.max_retries):
                     if(self.send_message_to_bulb(b'\xff\x00\x00\x00', candle)):
@@ -78,7 +78,7 @@ class PlayBulbSkill(MycroftSkill):
         self.speak("off")
 
         for candle in self.candles:
-            if(candle != ""):
+            if(candle != ''):
                 try_again = 0
                 while(try_again < self.max_retries):
                     if(self.send_message_to_bulb(b'\x00\x00\x00\x00', candle)):
