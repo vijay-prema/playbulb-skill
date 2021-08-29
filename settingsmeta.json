@@ -1,0 +1,51 @@
+{
+    "skillMetadata": {
+        "sections": [
+            {
+                "name": "Playbulb Candles",
+                "fields": [
+                    {
+                        "name": "max_retries",
+                        "type": "number",
+                        "label": "Max Retries",
+                        "value": "4"
+                    },
+                    {
+                        "type": "label",
+                        "label": "Enter up to 3 BLE MAC addresses below. e.g. 1A:2B:3C:4D:5E:6F"
+                    },
+                    {
+                        "name": "candle_addr1",
+                        "type": "text",
+                        "label": "Candle Address 1",
+                        "value": ""
+                    },
+                    {
+                        "name": "candle_addr2",
+                        "type": "text",
+                        "label": "Candle Address 2",
+                        "value": ""
+                    },
+                    {
+                        "name": "candle_addr3",
+                        "type": "text",
+                        "label": "Candle Address 3",
+                        "value": ""
+                    },
+                    {
+                        "name": "candle_addr4",
+                        "type": "text",
+                        "label": "Candle Address 4",
+                        "value": ""
+                    },
+                    {
+                        "name": "candle_addr5",
+                        "type": "text",
+                        "label": "Candle Address 5",
+                        "value": ""
+                    }
+                ]
+            }
+        ]
+    }
+}
